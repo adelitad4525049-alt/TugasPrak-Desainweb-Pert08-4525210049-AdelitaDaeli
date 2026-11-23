@@ -26,14 +26,56 @@ registrasi-event/
 ```
 
 ## Test Case Validasi (5 Skenario Input Salah)
+Test Case 1 — Validasi Panjang Nama Lengkap
 
-| No | Field | Input Uji | Hasil yang Diharapkan | Hasil Aktual |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | `namaLengkap` | `"Ad"` (2 karakter) | Ditolak; tampil pesan wajib minimal 3 karakter pada `#err-namaLengkap` | Ditolak; muncul pesan error dan penanda merah pada input nama |
-| 2 | `emailPeserta` | `"adelita-tanpa-domain"` | Ditolak; tampil pesan format email tidak valid pada `#err-emailPeserta` | Ditolak; muncul pesan error dan penanda merah pada input email |
-| 3 | `topik` (checkbox) | Tidak ada topik yang dicentang | Ditolak; tampil pesan pilih minimal satu topik pada `#err-topik` | Ditolak; muncul pesan error di bawah daftar checkbox topik |
-| 4 | `buktiFile` (upload) | File `.exe` atau file berukuran `3.5 MB` | Ditolak; tampil pesan format harus PDF/JPG/PNG atau ukuran maksimal 2 MB | Ditolak; muncul pesan error sesuai pelanggaran pada `#err-buktiFile` |
-| 5 | `catatan` (textarea) | `"Halo"` (4 karakter) | Ditolak; tampil pesan catatan minimal 10 karakter pada `#err-catatan` | Ditolak; muncul pesan error dan penanda merah pada textarea |
+Field: namaLengkap (Input Teks)
+
+Input Uji: "Ad" (hanya 2 karakter)
+
+Hasil yang Diharapkan: Pengiriman formulir ditolak dan muncul pesan kesalahan "Nama lengkap wajib diisi minimal 3 karakter." di bawah kolom nama.
+
+Hasil Aktual: Pengiriman ditolak, pesan kesalahan muncul pada #err-namaLengkap, dan kotak input berubah berwarna merah muda (invalid-input).
+
+2. Test Case 2 — Validasi Format Alamat Email
+
+Field: emailPeserta (Input Email)
+
+Input Uji: "adelita-tanpa-domain" (tidak mengandung simbol @ dan domain valid)
+
+Hasil yang Diharapkan: Pengiriman formulir ditolak dan muncul pesan kesalahan "Masukkan alamat email yang valid (contoh: nama@email.com)." di bawah kolom email.
+
+Hasil Aktual: Pengiriman ditolak, pesan kesalahan muncul pada #err-emailPeserta, dan kotak input email ditandai merah.
+
+3. Test Case 3 — Validasi Pilihan Checkbox Topik Sesi
+
+Field: topik (Checkbox)
+
+Input Uji: Tidak ada satu pun kotak pilihan topik sesi yang dicentang saat tombol kirim ditekan.
+
+Hasil yang Diharapkan: Pengiriman formulir ditolak dan muncul pesan kesalahan "Pilih minimal satu topik sesi yang diminati." di bawah kelompok checkbox.
+
+Hasil Aktual: Pengiriman ditolak dan pesan kesalahan tampil jelas pada #err-topik di bawah daftar pilihan topik.
+
+4. Test Case 4 — Validasi Tipe & Ukuran Berkas Unggahan
+
+Field: buktiFile (Input File / Upload)
+
+Input Uji: Mengunggah berkas berformat .exe atau berkas gambar berukuran 3.5 MB (melebihi batas 2 MB).
+
+Hasil yang Diharapkan: Pengiriman formulir ditolak dan muncul pesan kesalahan bahwa format berkas harus PDF, JPG, atau PNG dengan ukuran maksimal 2 MB.
+
+Hasil Aktual: Pengiriman ditolak, pesan kesalahan sesuai pelanggaran muncul pada #err-buktiFile, dan kolom unggah berkas ditandai merah.
+
+5. Test Case 5 — Validasi Panjang Minimal Catatan Tambahan
+
+Field: catatan (Textarea)
+
+Input Uji: "Halo" (hanya 4 karakter, kurang dari batas minimal 10 karakter)
+
+Hasil yang Diharapkan: Pengiriman formulir ditolak dan muncul pesan kesalahan "Catatan minimal 10 karakter." di bawah kotak catatan.
+
+Hasil Aktual: Pengiriman ditolak, pesan kesalahan tampil pada #err-catatan, dan area teks catatan ditandai merah.
+
 
 ## Validasi yang Tetap Wajib Dilakukan di Server
 
@@ -45,10 +87,10 @@ registrasi-event/
 ## Dokumentasi Hasil Website
 
 ### Tampilan Desktop
-![Tampilan Desktop](Dokumentasi/Desktop.jpeg)
+![Tampilan Desktop](Doumentasi/Desktop.jpeg)
 
 ### Tampilan Mobile
-![Tampilan Mobile](Dokumentasi/mobile.jpeg)
+![Tampilan Mobile](Doumentasi/mobile.jpeg)
 
 ## Catatan Tugas
 
