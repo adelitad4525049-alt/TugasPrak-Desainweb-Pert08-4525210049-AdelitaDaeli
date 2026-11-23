@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrasi Event — Workshop Digital &amp; Web</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="page-wrapper">
+    <section class="form-card">
+      <header class="form-header">
+        <span class="badge">EVENT RESMI</span>
+        <h1>Form Registrasi Event</h1>
+        <p>Seminar &amp; Workshop Pengembangan Web Responsif — 12 Desember 2026.</p>
+        <p class="required-note">* Wajib diisi sebelum mengirim pendaftaran.</p>
+      </header>
+
+      <div id="statusBox" class="status-box" aria-live="polite"></div>
+
+      <form id="eventForm" novalidate>
+        <!-- Nama Lengkap -->
+        <div class="form-group">
+          <label for="namaLengkap">Nama Lengkap *</label>
+          <input
+            type="text"
+            id="namaLengkap"
+            name="namaLengkap"
+            placeholder="Contoh: Adelita Daeli"
+            minlength="3"
+            required
+          />
+          <small class="error-msg" id="err-namaLengkap"></small>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="emailPeserta">Email Aktif *</label>
+          <input
+            type="email"
+            id="emailPeserta"
+            name="emailPeserta"
+            placeholder="adelitadaeli@gmail.com"
+            required
+          />
+          <small class="error-msg" id="err-emailPeserta"></small>
+        </div>
+
+        <!-- Select: Jenis Tiket / Peran -->
+        <div class="form-group">
+          <label for="kategoriPeserta">Kategori Peserta *</label>
+          <select id="kategoriPeserta" name="kategoriPeserta" required>
+            <option value="">-- Pilih kategori --</option>
+            <option value="mahasiswa">Mahasiswa / Pelajar</option>
+            <option value="umum">Umum / Profesional</option>
+            <option value="komunitas">Komunitas / Mitra</option>
+          </select>
+          <small class="error-msg" id="err-kategoriPeserta"></small>
+        </div>
+
+        <!-- Radio: Mode Kehadiran -->
+        <fieldset class="form-group">
+          <legend>Mode Kehadiran *</legend>
+          <label class="choice-item">
+            <input type="radio" name="kehadiran" value="offline" />
+            <span>Hadir di Lokasi (Offline)</span>
+          </label>
+          <label class="choice-item">
+            <input type="radio" name="kehadiran" value="online" />
+            <span>Ikut Daring (Online)</span>
+          </label>
+          <small class="error-msg" id="err-kehadiran"></small>
+        </fieldset>
+
+        <!-- Checkbox: Topik yang Diminati -->
+        <fieldset class="form-group">
+          <legend>Topik Sesi yang Diminati * (pilih minimal 1)</legend>
+          <label class="choice-item">
+            <input type="checkbox" name="topik" value="html-css" />
+            <span>Layout &amp; Responsivitas CSS</span>
+          </label>
+          <label class="choice-item">
+            <input type="checkbox" name="topik" value="validasi-form" />
+            <span>Validasi Form &amp; Keamanan Input</span>
+          </label>
+          <label class="choice-item">
+            <input type="checkbox" name="topik" value="ui-ux" />
+            <span>Desain Antarmuka Pengguna</span>
+          </label>
+          <small class="error-msg" id="err-topik"></small>
+        </fieldset>
+
+        <!-- Upload File: Bukti Pembayaran / Kartu Identitas -->
+        <div class="form-group">
+          <label for="buktiFile">Upload Bukti / Kartu Pelajar (PDF, JPG, PNG, maks. 2 MB) *</label>
+          <input
+            type="file"
+            id="buktiFile"
+            name="buktiFile"
+            accept=".pdf,.jpg,.jpeg,.png"
+            required
+          />
+          <small class="error-msg" id="err-buktiFile"></small>
+        </div>
+
+        <!-- Textarea: Catatan / Kebutuhan Khusus -->
+        <div class="form-group">
+          <label for="catatan">Catatan Tambahan / Pertanyaan * (minimal 10 karakter)</label>
+          <textarea
+            id="catatan"
+            name="catatan"
+            rows="4"
+            placeholder="Tuliskan pertanyaan untuk narasumber atau kebutuhan khusus..."
+            required
+          ></textarea>
+          <small class="error-msg" id="err-catatan"></small>
+        </div>
+
+        <!-- Checkbox Persetujuan -->
+        <div class="form-group">
+          <label class="choice-item">
+            <input type="checkbox" id="setujuSyarat" name="setujuSyarat" />
+            <span>Saya menyatakan data yang diisi benar dan bersedia mengikuti aturan event. *</span>
+          </label>
+          <small class="error-msg" id="err-setujuSyarat"></small>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" class="btn-submit">Daftar Event</button>
+          <button type="reset" id="btnReset" class="btn-reset">Reset Form</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
